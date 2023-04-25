@@ -15,10 +15,10 @@ def getexifinfo(filename):
 		else:
 			return False
 if __name__ == "__main__":
-	if len(sys.argv) != 2:
+	if len(sys.argv) < 2:
 		quit("Error: Usage python3 scorpion.py <path>")
-	path = sys.argv[1:]
-	for data in sys.argv[1]:
+	path = sys.argv[1]
+	for data in sys.argv[1:]:
 		if os.path.exists(data):
 			print("File: " + str(data))
 			print("Size: " + str(os.path.getsize(data)))
@@ -26,10 +26,11 @@ if __name__ == "__main__":
 			print("Last access: " + str(time.ctime(os.path.getatime(data))))
 			print("Creation: " + str(time.ctime(os.path.getctime(data))))
 			if getexifinfo(data):
-				print("EXIF: " + str(getexifinfo(data)))
+				print("EXIF: ")
 				for tag, value in getexifinfo(data).items():
 					print(str(tag) + ": " + str(value))
 			else:
 				print("EXIF: False")
 		else:
 			print("Error: " + str(data) + " not found")
+		print("-------------------------------\n")

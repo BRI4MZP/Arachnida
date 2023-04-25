@@ -54,6 +54,7 @@ def localhtnl(url):
 		pass
 	print(images)
 	quit()
+
 def verifyer(picture):
 	tags = ["jpg", "jpeg", "png", "gif", "bmp", "docx", "pdf"]
 	for tag in tags:
@@ -74,6 +75,7 @@ def getImages():
 				continue
 		except Exception:
 			pass
+
 def download():
 	count = 0
 	for imagen in images:
@@ -88,8 +90,6 @@ def download():
 					count += 1
 		except:
 			pass
-def local():
-	print()
 
 def getUrls(url, lv):
 	try:
@@ -100,7 +100,6 @@ def getUrls(url, lv):
 				url = str(x['href'])
 				if url not in urls and url.startswith("http://") or url.startswith("https://"):
 					urls.add(url)
-					# print(url)
 					# print(url)
 					# print(level)
 					# print("lv: " + str(lv) + "level: "+ str(level))
@@ -122,15 +121,7 @@ if __name__ == "__main__":
 		getUrls(url, 0)
 	else:
 		urls.add(url)
-	print("HOLA")
 	print(len(urls))
 	getImages()
-	print("aroo")
 	print(images)
 	download()
-	# print (images)
-	# print(urls)
-	# print(len(urls))
-	# while urls[count]:
-	# 	spyder(urls[count])
-	# 	count += 1
